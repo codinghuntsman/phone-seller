@@ -94,3 +94,35 @@ const OthersInfo = (info) => {
         .then(Response => Response.json())
         .then(data => displayOthersInfo(data.data))
 };
+let modalsDiv = null;
+const displayOthersInfo = (details) => {
+    modalsDiv = document.createElement('div')
+    modalsDiv.innerHTML = `
+    <div class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">${details.brand}</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div >
+                <div class="modal-body">
+                    <img src="${details.image}" alt="Image is not found">
+                    <h5 class="mt-2">Name : ${details.name}</h5>
+                    <h6 class="card-text">Brand: ${details.brand}</h6>
+                    <h6>Sensore : ${details.mainFeatures.sensors}</h6>
+                    <h6>Bluetooth : ${details.others.Bluetooth}</h6>
+                    <h6>GPS : ${details.others.GPS}</h6>
+                    <h6>NFC : ${details.others.NFC}</h6>
+                    <h6>Radio : ${details.others.Radio}</h6>
+                    <h6>USB : ${details.others.USB}</h6>
+                    <h6>WLAN : ${details.others.WLAN}</h6>
+                </div>
+            </div >
+        </div >
+    </div >
+    `;
+    document.body.append(modalsDiv);
+    var modal = new bootstrap.Modal(modalsDiv.querySelector('.modal'));
+    modal.show();
+};
