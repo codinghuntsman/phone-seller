@@ -1,5 +1,6 @@
 //-----------------Loaded phones data---------------------
 const loadPhoneData = () => {
+    document.getElementById('parent-div').innerHTML = '';
     const inputField = document.getElementById('input-field');
     const inputText = (inputField.value).toLowerCase();
     inputField.value = '';
