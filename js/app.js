@@ -87,3 +87,10 @@ const displayPhoneDetails = (details) => {
     var modal = new bootstrap.Modal(modalDiv.querySelector('.modal'));
     modal.show();
 };
+//-------------------------Others information-------------------------------
+const OthersInfo = (info) => {
+    const url = `https://openapi.programming-hero.com/api/phone/${info}`;
+    fetch(url)
+        .then(Response => Response.json())
+        .then(data => displayOthersInfo(data.data))
+};
