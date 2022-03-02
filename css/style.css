@@ -1,0 +1,11 @@
+#top-part h1{
+    background-color: aliceblue;
+    border-radius: 50px;
+}
+#top-part{
+    background-color:#8c00ffaf;
+}
+#error{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
