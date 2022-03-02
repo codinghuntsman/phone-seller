@@ -8,9 +8,6 @@ const loadPhoneData = () => {
     if (inputText == "") {
         error.innerText = 'please insert a name to see your favorite phone';
     }
-    else if (inputText >= 0) {
-        error.innerText = 'You can not input any number Please insert brand name that you want';
-    }
     else {
         const url = `https://openapi.programming-hero.com/api/phones?search=${inputText}
         `;
