@@ -48,3 +48,42 @@ const displayPhones = (phones) => {
         };
     };
 };
+//-------------------------Phone details-------------------------------
+const phoneDetails = (info) => {
+    const url = `https://openapi.programming-hero.com/api/phone/${info}`;
+    fetch(url)
+        .then(Response => Response.json())
+        .then(data => displayPhoneDetails(data.data))
+};
+let modalDiv = null;
+const displayPhoneDetails = (details) => {
+    modalDiv = document.createElement('div')
+    modalDiv.innerHTML = `
+    <div class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="mx-auto">
+                        <h2 class="modal-title">${details.brand}</h2>
+                    </div>
+                    <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div >
+                <div class="modal-body">
+                    <img src="${details.image}" alt="Image is not found">
+                    <h5 class="mt-2">Name : ${details.name}</h5>
+                    <h6 class="card-text">Brand: ${details.brand}</h6>
+                    <h6>Release date : ${details.releaseDate ? details.releaseDate : 'Release date not found'}</h6>
+                    <h6>Display size : ${details.mainFeatures.displaySize}</h6>
+                    <h6>Memory : ${details.mainFeatures.memory}</h6>
+                    <h6>Storage : ${details.mainFeatures.storage}</h6>
+                    <h6>ChipSet : ${details.mainFeatures.chipSet}</h6>
+                </div>
+            </div >
+        </div >
+    </div >
+    `;
+    document.body.append(modalDiv);
+    var modal = new bootstrap.Modal(modalDiv.querySelector('.modal'));
+    modal.show();
+};
