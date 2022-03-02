@@ -126,3 +126,4 @@ const displayOthersInfo = (details) => {
     var modal = new bootstrap.Modal(modalsDiv.querySelector('.modal'));
     modal.show();
 };
+//-----------------------------End-----------------------------------
